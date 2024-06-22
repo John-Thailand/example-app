@@ -8,6 +8,16 @@
     <title>ログインフォーム</title>
 </head>
 <body>
+    <!-- https://readouble.com/laravel/8.x/ja/validation.html -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <!-- web.phpからルート名がloginのルートを参照する -->
     <form method="POST" action="{{ route('login') }}">
         <!-- CSRF攻撃から保護するために使用される -->
@@ -20,12 +30,12 @@
         <!-- value：以前の入力値を保持するため -->
         <!-- autocomplete="email"：メールアドレスの自動補完機能 -->
         <!-- autofocus：ページが読み込まれた時に、自動的にフォーカスが当たる -->
-        <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
         <br>
         <label for="password">パスワード</label>
         <br>
-        <input id="password" type="password" name="password" required autocomplete="current-password">
+        <input id="password" type="password" name="password" autocomplete="current-password">
 
         <br>
         <!-- type="submit"：このボタンがクリックされたときに、フォームのデータがサーバーに送信される -->
