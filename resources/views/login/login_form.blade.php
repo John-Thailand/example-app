@@ -13,17 +13,23 @@
         <!-- CSRF攻撃から保護するために使用される -->
         @csrf
 
+        <!-- labelとinputを明示的に関連づけるには、label forとinput idを同じにする -->
         <label for="email">メールアドレス</label>
         <br>
-        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <!-- name='email':この入力フィールドの値をサーバーに送るための名前 -->
+        <!-- value：以前の入力値を保持するため -->
+        <!-- autocomplete="email"：メールアドレスの自動補完機能 -->
+        <!-- autofocus：ページが読み込まれた時に、自動的にフォーカスが当たる -->
+        <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
         <br>
-        <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
+        <label for="password">パスワード</label>
         <br>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+        <input id="password" type="password" name="password" required autocomplete="current-password">
 
         <br>
-        <button type="submit" class="btn btn-primary">ログイン</button>
+        <!-- type="submit"：このボタンがクリックされたときに、フォームのデータがサーバーに送信される -->
+        <button type="submit">ログイン</button>
     </form>
 </body>
 </html>
