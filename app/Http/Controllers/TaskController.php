@@ -10,9 +10,11 @@ class TaskController extends Controller
 {
     public function showTasks()
     {
-        // ログインしたユーザーのタスクを取得
+        // ログインしたユーザーのID
         $userId = Auth::user()->id;
-        $tasks = Task::where('user_id', $userId)->get();
+        /// Taskと関連するuser情報を取得
+        /// ログインしたユーザーのタスクのみ取得
+        $tasks = Task::with('user')->where('user_id', $userId)->get();
         // 画面の表示
         return view('home', ['tasks' => $tasks]);
     }

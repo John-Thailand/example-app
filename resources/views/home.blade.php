@@ -28,7 +28,7 @@
                         <tr>
                             <td>{{ $task->title }}</td>
                             <td>{{ $task->date }}</td>
-                            <td>{{ $task->user_id }}</td>
+                            <td>{{ $task->user->name }}</td>
                             <td>{{ $task->description }}</td>
                         </tr>
                     @endforeach
