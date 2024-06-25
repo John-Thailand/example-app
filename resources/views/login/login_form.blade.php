@@ -18,6 +18,12 @@
             </ul>
         </div>
     @endif
+    <!-- ログイン失敗時の表示 -->
+    @if (session('login_error'))
+        <div class="alert alert-danger">
+            {{ session('login_error') }}
+        </div>
+    @endif
     <!-- web.phpからルート名がloginのルートを参照する -->
     <form method="POST" action="{{ route('login') }}">
         <!-- CSRF攻撃から保護するために使用される -->
