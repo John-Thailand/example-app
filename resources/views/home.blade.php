@@ -14,11 +14,14 @@
                     {{ session('login_success') }}
                 </div>
             @endif
-            <h3>プロフィール</h3>
-            <ul>
-                <li>名前：{{ Auth::user()->name }}</li>
-                <li>メールアドレス：{{ Auth::user()->email }}</li>
-            </ul>
+            <table border="1">
+                <tr>
+                    <th>タイトル</th>
+                    <th>期限</th>
+                    <th>担当者</th>
+                    <th>内容</th>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
