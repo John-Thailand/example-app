@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\TaskController;
 
 // ログイン前に実行できる処理のグループとして、'guest'と設定する
 Route::group(['middleware' => ['guest']], function () {
@@ -14,7 +15,5 @@ Route::group(['middleware' => ['guest']], function () {
 // ログイン後に実行できる処理のグループとして、'auth'と設定する
 Route::group(['middleware' => ['auth']], function () {
     // ホーム画面
-    Route::get('home', function () {
-        return view('home');
-    })->name('home');
+    Route::get('home', [TaskController::class, 'showTasks'])->name('home');
 });
