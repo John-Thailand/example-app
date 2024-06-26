@@ -16,4 +16,8 @@ Route::group(['middleware' => ['guest']], function () {
 Route::group(['middleware' => ['auth']], function () {
     // ホーム画面
     Route::get('home', [TaskController::class, 'showTasks'])->name('home');
+    // タスク新規作成画面
+    Route::get('create', [TaskController::class, 'create'])->name('tasks.create');
+    // タスクの新規作成
+    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 });

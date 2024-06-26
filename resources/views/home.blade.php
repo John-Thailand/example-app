@@ -36,5 +36,6 @@
             </table>
         </div>
     </div>
+    <button class="add-button"><a href="{{ route('tasks.create') }}">+</a></button>
 </body>
 </html>

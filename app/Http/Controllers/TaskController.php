@@ -18,4 +18,32 @@ class TaskController extends Controller
         // 画面の表示
         return view('home', ['tasks' => $tasks]);
     }
+
+    public function create()
+    {
+        // 'tasks.create'は新しいタスクを作成するビューの名前です。
+        return view('tasks.create');
+    }
+
+    public function store(Request $request)
+    {
+        // バリデーション
+        $request->validation([
+            'user_id' => 'required|integer',
+            'title' => 'required|max:30',
+            'date' => 'required|date',
+            'description' => 'required|string',
+        ]);
+
+        // タスクの新規作成
+        $task = new Task();
+        $task->user_id = $request->input('user_id');
+        $task->title = $request->input('title');
+        $task->date = $request->input('date');
+        $task->description = $request->input('description');
+        $task->save();
+
+        // リダイレクトとフラッシュメッセージ
+        return redirect()->route('home')->with('success', 'タスクが作成されました！');
+    }
 }
