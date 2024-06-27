@@ -16,7 +16,7 @@
         </div>
         <div>
             <label for="date">期限:</label>
-            <input type="date" id="date" name="date">
+            <input type="datetime-local" id="date" name="date">
         </div>
         <div>
             <label for="user">担当者:</label>
