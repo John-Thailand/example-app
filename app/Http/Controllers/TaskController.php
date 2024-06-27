@@ -31,7 +31,7 @@ class TaskController extends Controller
         $request->validation([
             'user_id' => 'required|integer',
             'title' => 'required|max:30',
-            'date' => 'required|date',
+            'date' => 'required|date_format:Y-m-d\TH:i',
             'description' => 'required|string',
         ]);
 
