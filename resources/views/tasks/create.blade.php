@@ -20,7 +20,12 @@
         </div>
         <div>
             <label for="user">担当者:</label>
-            <input type="text" id="user" name="user">
+            <select id="user" name="user" required>
+                <option value="">担当者を選択してください</option>
+                @foreach($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="description">内容:</label>

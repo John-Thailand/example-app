@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
+use App\Models\User;
 
 class TaskController extends Controller
 {
@@ -21,8 +22,11 @@ class TaskController extends Controller
 
     public function create()
     {
+        // 全てのユーザーデータを取得
+        $users = User::all();
         // 'tasks.create'は新しいタスクを作成するビューの名前です。
-        return view('tasks.create');
+        // 全てのユーザー情報を渡す
+        return view('tasks.create', ['users' => $users]);
     }
 
     public function store(Request $request)
