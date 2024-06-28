@@ -32,7 +32,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         // バリデーション
-        $request->validation([
+        $request->validate([
             'user_id' => 'required|integer',
             'title' => 'required|max:30',
             'date' => 'required|date_format:Y-m-d\TH:i',
