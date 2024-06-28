@@ -19,8 +19,8 @@
             <input type="datetime-local" id="date" name="date">
         </div>
         <div>
-            <label for="user">担当者:</label>
-            <select id="user" name="user" required>
+            <label for="user_id">担当者:</label>
+            <select id="user_id" name="user_id" required>
                 <option value="">担当者を選択してください</option>
                 @foreach($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
