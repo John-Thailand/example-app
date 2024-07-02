@@ -10,8 +10,8 @@
     <h1>タスク編集</h1>
     <form action="{{ route('tasks.update', $task->id) }}" method="POST">
         @csrf
-        <-- HTMLフォームがサポートしていないHTTPメソッドを使用するために使用される -->
-        <-- HTMLフォームはデフォルトでGETとPOSTメソッドしかサポートしていません -->
+        <!-- HTMLフォームがサポートしていないHTTPメソッドを使用するために使用される -->
+        <!-- HTMLフォームはデフォルトでGETとPOSTメソッドしかサポートしていません -->
         @method('PUT')
         <div>
             <label for="title">タイトル</label>
@@ -35,7 +35,7 @@
     </form>
     <form action="{{ route('tasks.delete', $task->id) }}" method="POST">
         @csrf
-        <-- HTMLフォームはデフォルトでGETとPOSTメソッドしかサポートしていません -->
+        <!-- HTMLフォームはデフォルトでGETとPOSTメソッドしかサポートしていません -->
         @method('DELETE')
         <button type="submit">削除</button>
     </form>
