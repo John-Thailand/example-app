@@ -55,8 +55,10 @@ class TaskController extends Controller
     {
         // IDを元にタスクを取得
         $task = Task::findOrFail($id);
+        // 全てのユーザーデータを取得
+        $users = User::all();
         // タスク情報をビューに渡す
-        return view('tasks.edit', compact('task'));
+        return view('tasks.edit', ['task' => $task, 'users' => $users]);
     }
 
     public function update(Request $request, $id)
