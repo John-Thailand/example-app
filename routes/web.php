@@ -20,4 +20,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('create', [TaskController::class, 'create'])->name('tasks.create');
     // タスクの新規作成
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+    // タスク編集/削除画面
+    Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+    // タスクの編集
+    Route::put('/tasks/{id}/update', [TaskController::class, 'update'])->name('tasks.update');
+    // タスクの削除
+    Route::delete('/tasks/{id}/delete', [TaskController::class, 'delete'])->name('tasks.delete');
 });

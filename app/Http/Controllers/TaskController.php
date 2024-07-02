@@ -50,4 +50,12 @@ class TaskController extends Controller
         // リダイレクトとフラッシュメッセージ
         return redirect()->route('home')->with('success', 'タスクが作成されました！');
     }
+
+    public function edit($id)
+    {
+        // IDを元にタスクを取得
+        $task = Task::findOrFail($id);
+        // タスク情報をビューに渡す
+        return view('tasks.edit', compact('task'));
+    }
 }

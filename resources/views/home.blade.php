@@ -21,6 +21,7 @@
                         <th>期限</th>
                         <th>担当者</th>
                         <th>内容</th>
+                        <th>編集/削除</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,7 @@
                             <td>{{ $task->date }}</td>
                             <td>{{ $task->user->name }}</td>
                             <td>{{ $task->description }}</td>
+                            <td><button class="edit-button"><a href="{{ route('tasks.edit', $task->id) }}">edit/delete</a></button></td>
                         </tr>
                     @endforeach
                 </tbody>
