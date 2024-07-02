@@ -82,6 +82,6 @@ class TaskController extends Controller
         ]);
 
         // 更新後のリダイレクト
-        return redirect()->route('tasks.index')->with('success', 'タスクが更新されました');
+        return redirect()->route('home')->with('success', 'タスクが更新されました');
     }
 }
