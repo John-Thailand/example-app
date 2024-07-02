@@ -22,8 +22,12 @@
             <input type="datetime-local" id="date" name="date" value="{{ $task->date }}">
         </div>
         <div>
-            <label for="user">担当者</label>
-            <input type="text" id="user" name="user" value="{{ $task->user->name }}">
+            <label for="user_id">担当者:</label>
+            <select id="user_id" name="user_id" required>
+                @foreach($users as $user)
+                    <option value="{{ $user->id }}" {{ $task->user_id == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="description">内容</label>
