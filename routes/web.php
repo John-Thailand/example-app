@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
     // タスク編集/削除画面
     Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
     // タスクの編集
-    Route::put('/tasks/{id}/update', [TaskController::class, 'update'])->name('tasks.update');
+    Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
     // タスクの削除
-    Route::delete('/tasks/{id}/delete', [TaskController::class, 'delete'])->name('tasks.delete');
+    Route::delete('/tasks/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
 });
