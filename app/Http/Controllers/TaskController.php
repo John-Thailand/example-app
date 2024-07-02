@@ -58,4 +58,28 @@ class TaskController extends Controller
         // タスク情報をビューに渡す
         return view('tasks.edit', compact('task'));
     }
+
+    public function update(Request $request, $id)
+    {
+        // バリデーション
+        $request->validate([
+            'user_id' => 'required|integer',
+            'title' => 'required|max:30',
+            'date' => 'required|date_format:Y-m-d\TH:i',
+            'description' => 'required|string',
+        ]);
+
+        // IDを元にタスクを取得
+        $task = Task::findOrFail($id);
+
+        // タスク情報を更新
+        $task->update([
+            'title' => $request->input('title'),
+            'date' => $request->input('date'),
+            'description' => $request->input('description'),
+        ]);
+
+        // 更新後のリダイレクト
+        return redirect()->route('tasks.index')->with('success', 'タスクが更新されました');
+    }
 }
