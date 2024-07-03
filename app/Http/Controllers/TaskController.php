@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use App\Models\Task;
 use App\Models\User;
 
@@ -63,6 +64,10 @@ class TaskController extends Controller
 
     public function update(Request $request, $id)
     {
+        // リクエストとIDの情報をログに出力
+        Log::info('Request data:', $request->all());
+        Log::info('Task ID:', ['id' => $id]);
+        
         // バリデーション
         $request->validate([
             'user_id' => 'required|integer',
