@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>タスク編集</h1>
-    <form action="{{ route('tasks.update', $task->id) }}" method="POST">
+    <form action="{{ route('tasks.update', ['id' => $task->id]) }}" method="POST">
         @csrf
         <!-- HTMLフォームがサポートしていないHTTPメソッドを使用するために使用される -->
         <!-- HTMLフォームはデフォルトでGETとPOSTメソッドしかサポートしていません -->

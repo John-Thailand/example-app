@@ -9,6 +9,8 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'title', 'date', 'description'];
+
     // 「User:Task = 1:多」を設定
     public function user()
     {

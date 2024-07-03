@@ -81,6 +81,7 @@ class TaskController extends Controller
 
         // タスク情報を更新
         $task->update([
+            'user_id' => $request->input('user_id'),
             'title' => $request->input('title'),
             'date' => $request->input('date'),
             'description' => $request->input('description'),
