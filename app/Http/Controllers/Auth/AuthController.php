@@ -79,4 +79,10 @@ class AuthController extends Controller
         // ユーザ情報をビューに渡す
         return view('users.edit', ['user' => $user]);
     }
+
+    public function update(Request $request, $id)
+    {
+        // 更新後のリダイレクト
+        return redirect()->route('users.index')->with('success', 'ユーザが更新されました');
+    }
 }
