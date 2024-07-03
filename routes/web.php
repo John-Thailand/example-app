@@ -27,8 +27,10 @@ Route::group(['middleware' => ['auth']], function () {
     // タスクの削除
     Route::delete('/tasks/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
 
-    // ユーザー一覧画面
+    // ユーザ一覧画面
     Route::get('/users', [AuthController::class, 'index'])->name('users.index');
-    // ユーザー新規作成画面
+    // ユーザ新規作成画面
     Route::get('/users/create', [AuthController::class, 'create'])->name('users.create');
+    // ユーザの新規作成
+    Route::post('/users', [AuthController::class, 'store'])->name('users.store');
 });

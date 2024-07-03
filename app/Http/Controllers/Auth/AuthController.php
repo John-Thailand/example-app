@@ -5,21 +5,17 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginFormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    /**
-     * @return View
-     */
     public function showLogin()
     {
         return view('login.login_form');
     }
 
-    /**
-     * @param  App\Http\Requests\LoginFormRequest $request
-     */
     public function login(LoginFormRequest $request)
     {
         // フォームから送信された 'email'と'password'の値を取得
@@ -39,9 +35,6 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * @return View
-     */
     public function index() {
         // 全てのユーザーデータを取得
         $users = User::all();
@@ -49,11 +42,32 @@ class AuthController extends Controller
         return view('users.index', ['users' => $users]);
     }
 
-    /**
-     * @return View
-     */
     public function create()
     {
         return view('users.create');
+    }
+
+    public function store(Request $request)
+    {
+        // バリデーション
+        // email: メールアドレスが正しい形式であることを確認する
+        // usersテーブルのemailが一意であるか確認する
+        // confirmed: パスワードと確認用パスワードが一致することを確認するためのもの
+        // password_confirmation フィールドが必要
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        // ユーザの新規作成
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));  // パスワードをハッシュ化
+        $user->save();
+
+        // リダイレクトとフラッシュメッセージ
+        return redirect()->route('/users')->with('success', 'ユーザが作成されました！');
     }
 }
