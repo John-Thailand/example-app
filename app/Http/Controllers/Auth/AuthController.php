@@ -108,4 +108,12 @@ class AuthController extends Controller
         // 更新後のリダイレクト
         return redirect()->route('users.index')->with('success', 'ユーザが更新されました');
     }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'ユーザが削除されました');
+    }
 }

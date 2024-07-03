@@ -37,4 +37,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/{id}/edit', [AuthController::class, 'edit'])->name('users.edit');
     // ユーザの編集
     Route::put('/users/{id}', [AuthController::class, 'update'])->name('users.update');
+    // ユーザの削除
+    Route::delete('/users/{id}', [AuthController::class, 'destroy'])->name('users.destroy');
 });
