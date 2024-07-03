@@ -11,6 +11,7 @@
     <div class="sidebar w-64 bg-gray-800 text-white h-screen p-5">
         <ul>
             <li class="mb-4"><a href="{{ route('home') }}" class="text-blue-300 hover:underline">タスク一覧</a></li>
+            <li class="mb-4"><a href="{{ route('users.index') }}" class="text-blue-300 hover:underline">ユーザ一覧</a></li>
         </ul>
     </div>
     <div class="content flex-1 p-6 bg-gray-100">

@@ -26,4 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
     // タスクの削除
     Route::delete('/tasks/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
+
+    // ユーザー一覧画面
+    Route::get('/users', [AuthController::class, 'index'])->name('users.index');
 });

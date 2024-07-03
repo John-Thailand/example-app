@@ -37,4 +37,8 @@ class AuthController extends Controller
             'login_error' => 'メールアドレスかパスワードが間違っています。'
         ]);
     }
+
+    public function index() {
+        return view('users.index');
+    }
 }
