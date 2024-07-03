@@ -89,4 +89,15 @@ class TaskController extends Controller
         // 更新後のリダイレクト
         return redirect()->route('home')->with('success', 'タスクが更新されました');
     }
+
+    public function delete($id)
+    {
+        // IDを元にタスクを取得
+        $task = Task::findOrFail($id);
+        // タスクを削除
+        $task->delete();
+
+        // 更新後のリダイレクト
+        return redirect()->route('home')->with('success', 'タスクが削除されました');
+    }
 }
