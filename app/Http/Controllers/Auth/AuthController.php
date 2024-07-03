@@ -82,6 +82,29 @@ class AuthController extends Controller
 
     public function update(Request $request, $id)
     {
+        // バリデーション
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email',
+            'password' => 'nullable|string|min:8',
+        ]);
+
+        // IDを元にユーザを取得
+        $user = User::findOrFail($id);
+
+        // ユーザ情報を更新
+        $user->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
+
+        // パスワードの更新
+        if ($request->has('password')) {
+            $user->update([
+                'password' => Hash::make($request->input('password')),
+            ]);
+        }
+
         // 更新後のリダイレクト
         return redirect()->route('users.index')->with('success', 'ユーザが更新されました');
     }
