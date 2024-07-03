@@ -7,7 +7,12 @@
     <title>ホーム画面</title>
 </head>
 <body>
-    <div>
+    <div class="sidebar">
+        <ul>
+            <li><a href="{{ route('home') }}">タスク一覧</a></li>
+        </ul>
+    </div>
+    <div class="content">
         <div>
             @if (session('login_success'))
                 <div class="alert alert-success">
