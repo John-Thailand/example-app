@@ -29,4 +29,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     // ユーザー一覧画面
     Route::get('/users', [AuthController::class, 'index'])->name('users.index');
+    // ユーザー新規作成画面
+    Route::get('/users/create', [AuthController::class, 'create'])->name('users.create');
 });

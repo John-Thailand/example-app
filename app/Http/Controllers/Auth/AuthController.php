@@ -48,4 +48,12 @@ class AuthController extends Controller
         // 全てのユーザー情報を一覧で表示
         return view('users.index', ['users' => $users]);
     }
+
+    /**
+     * @return View
+     */
+    public function create()
+    {
+        return view('users.create');
+    }
 }
