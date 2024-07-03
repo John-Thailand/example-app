@@ -68,6 +68,7 @@ class AuthController extends Controller
         $user->save();
 
         // リダイレクトとフラッシュメッセージ
-        return redirect()->route('/users')->with('success', 'ユーザが作成されました！');
+        // routeにはルート名を指定する
+        return redirect()->route('users.index')->with('success', 'ユーザが作成されました！');
     }
 }
