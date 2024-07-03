@@ -71,4 +71,12 @@ class AuthController extends Controller
         // routeにはルート名を指定する
         return redirect()->route('users.index')->with('success', 'ユーザが作成されました！');
     }
+
+    public function edit($id)
+    {
+        // IDを元にユーザを取得
+        $user = User::findOrFail($id);
+        // ユーザ情報をビューに渡す
+        return view('users.edit', ['user' => $user]);
+    }
 }

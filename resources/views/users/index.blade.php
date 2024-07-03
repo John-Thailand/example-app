@@ -38,7 +38,7 @@
                             <td class="py-2 px-4 border-b">{{ $user->password }}</td>
                             <td class="py-2 px-4 border-b">
                                 <button class="edit-button text-blue-500 hover:underline">
-                                    <a href="{{ route('tasks.edit', $user->id) }}">
+                                    <a href="{{ route('users.edit', $user->id) }}">
                                         編集/削除
                                     </a>
                                 </button>

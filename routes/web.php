@@ -33,4 +33,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/create', [AuthController::class, 'create'])->name('users.create');
     // ユーザの新規作成
     Route::post('/users', [AuthController::class, 'store'])->name('users.store');
+    // ユーザ編集/削除画面
+    Route::get('/users/{id}/edit', [AuthController::class, 'edit'])->name('users.edit');
 });
