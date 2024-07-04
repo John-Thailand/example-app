@@ -14,8 +14,8 @@ Route::group(['middleware' => ['guest']], function () {
 
 // ログイン後に実行できる処理のグループとして、'auth'と設定する
 Route::group(['middleware' => ['auth']], function () {
-    // ホーム画面
-    Route::get('home', [TaskController::class, 'showTasks'])->name('home');
+    // タスク一覧画面
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
     // タスク新規作成画面
     Route::get('create', [TaskController::class, 'create'])->name('tasks.create');
     // タスクの新規作成

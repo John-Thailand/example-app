@@ -10,7 +10,7 @@ use App\Models\User;
 
 class TaskController extends Controller
 {
-    public function showTasks()
+    public function index()
     {
         // ログインしたユーザーのID
         $userId = Auth::user()->id;
@@ -18,7 +18,7 @@ class TaskController extends Controller
         /// ログインしたユーザーのタスクのみ取得
         $tasks = Task::with('user')->where('user_id', $userId)->get();
         // 画面の表示
-        return view('home', ['tasks' => $tasks]);
+        return view('tasks.index', ['tasks' => $tasks]);
     }
 
     public function create()
@@ -49,7 +49,7 @@ class TaskController extends Controller
         $task->save();
 
         // リダイレクトとフラッシュメッセージ
-        return redirect()->route('home')->with('success', 'タスクが作成されました！');
+        return redirect()->route('tasks.index')->with('success', 'タスクが作成されました！');
     }
 
     public function edit($id)
@@ -88,7 +88,7 @@ class TaskController extends Controller
         ]);
 
         // 更新後のリダイレクト
-        return redirect()->route('home')->with('success', 'タスクが更新されました');
+        return redirect()->route('tasks.index')->with('success', 'タスクが更新されました');
     }
 
     public function delete($id)
@@ -99,6 +99,6 @@ class TaskController extends Controller
         $task->delete();
 
         // 更新後のリダイレクト
-        return redirect()->route('home')->with('success', 'タスクが削除されました');
+        return redirect()->route('tasks.index')->with('success', 'タスクが削除されました');
     }
 }

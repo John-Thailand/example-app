@@ -26,7 +26,7 @@ class AuthController extends Controller
             // 成功した場合、セッションを再生成
             $request->session()->regenerate();
             // ホームページにリダイレクトし、ログイン成功のメッセージをセッションに保存
-            return redirect('home')->with('login_success', 'ログイン成功しました！');
+            return redirect()->route('tasks.index')->with('login_success', 'ログイン成功しました！');
         }
 
         // 認証が失敗した場合、元のページにリダイレクトし、エラーメッセージーじをセッションに保存

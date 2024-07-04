@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ホーム画面</title>
+    <title>タスク一覧画面</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="flex">
     <div class="sidebar w-64 bg-gray-800 text-white h-screen p-5">
         <ul>
-            <li class="mb-4"><a href="{{ route('home') }}" class="text-blue-300 hover:underline">タスク一覧</a></li>
+            <li class="mb-4"><a href="{{ route('tasks.index') }}" class="text-blue-300 hover:underline">タスク一覧</a></li>
             <li class="mb-4"><a href="{{ route('users.index') }}" class="text-blue-300 hover:underline">ユーザ一覧</a></li>
         </ul>
     </div>
