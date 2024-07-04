@@ -17,7 +17,7 @@ Route::group(['middleware' => ['auth']], function () {
     // タスク一覧画面
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
     // タスク新規作成画面
-    Route::get('create', [TaskController::class, 'create'])->name('tasks.create');
+    Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
     // タスクの新規作成
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
     // タスク編集/削除画面
