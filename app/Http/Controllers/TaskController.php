@@ -91,7 +91,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'タスクが更新されました');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         // IDを元にタスクを取得
         $task = Task::findOrFail($id);

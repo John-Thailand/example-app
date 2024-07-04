@@ -39,7 +39,7 @@
                 <button type="submit" class="w-full px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">更新</button>
             </div>
         </form>
-        <form action="{{ route('tasks.delete', $task->id) }}" method="POST"  class="mt-4">
+        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST"  class="mt-4">
             @csrf
             <!-- HTMLフォームはデフォルトでGETとPOSTメソッドしかサポートしていません -->
             @method('DELETE')
